@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>김소연 포트폴리오 | Lead UI/UX 기획자 · PM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue: #2563eb;
+      --blue-soft: #eff4ff;
+      --navy: #0f172a;
+      --text: #1e293b;
+      --muted: #64748b;
+      --faint: #94a3b8;
+      --line: #e2e8f0;
+      --side-bg: #f8fafc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      background: #e9edf3;
+      color: var(--text);
+      padding: 24px;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      overflow: hidden;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .side {
+      background: var(--side-bg);
+      border-right: 1px solid var(--line);
+      padding: 32px 32px 40px;
+      text-align: center;
+    }
+    .side .label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--faint);
+    }
+    .photo {
+      width: 176px;
+      height: 224px;
+      margin: 20px auto 22px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: linear-gradient(160deg, #e7e2dc, #cfc6bb);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.15);
+      border: 3px solid #fff;
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .side h2 { font-size: 24px; font-weight: 900; color: var(--navy); }
+    .side .role { margin-top: 6px; font-size: 14px; font-weight: 700; color: var(--blue); }
+    .career {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border: 1px solid #bfd3fb;
+      border-radius: 999px;
+    }
+    .contacts { list-style: none; margin-top: 40px; text-align: left; display: grid; gap: 22px; }
+    .contacts li { display: flex; gap: 14px; align-items: flex-start; }
+    .contacts .ico {
+      flex: none;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: grid; place-items: center;
+      margin-top: 2px;
+    }
+    .contacts .ico svg { width: 14px; height: 14px; fill: #fff; }
+    .contacts small { display: block; font-size: 11px; color: var(--faint); }
+    .contacts strong { display: block; font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.45; word-break: keep-all; }
+
+    /* ---------- Main ---------- */
+    .main { padding: 48px 48px 40px; }
+    .title {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 30px; font-weight: 900; color: var(--navy); letter-spacing: -0.01em;
+    }
+    .title::before { content: ""; width: 5px; height: 24px; background: var(--blue); border-radius: 3px; }
+    .headline { margin-top: 14px; font-size: 20px; font-weight: 700; line-height: 1.5; color: var(--navy); }
+    .headline em { font-style: normal; color: var(--blue); }
+    .headline em span { box-shadow: inset 0 -2px 0 var(--blue); }
+    .intro { margin-top: 14px; font-size: 14px; line-height: 1.7; color: var(--muted); word-break: keep-all; max-width: 720px; }
+    hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .facts h3 { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; color: var(--navy); letter-spacing: 0.02em; }
+    .facts h3 svg { width: 16px; height: 16px; fill: var(--blue); }
+    .facts .body { margin-top: 12px; font-size: 12px; line-height: 1.7; color: var(--faint); }
+    .facts .body strong { display: block; font-size: 13px; color: var(--navy); }
+    .facts .body .sub { color: var(--muted); }
+    .skills { list-style: none; display: grid; grid-template-columns: auto auto; column-gap: 18px; justify-content: start; font-size: 12px; color: var(--muted); }
+    .skills li::before { content: "•"; color: var(--faint); margin-right: 6px; }
+
+    .highlights {
+      margin-top: 36px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #f8fafc;
+    }
+    .highlights header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .highlights header h3 { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--navy); }
+    .highlights header p { font-size: 11px; color: var(--faint); }
+    .cards { margin-top: 18px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card {
+      display: flex; flex-direction: column;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(37, 99, 235, 0.12); border-color: #bfd3fb; }
+    .browser { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+    .browser .bar { display: flex; gap: 4px; padding: 6px 8px; background: #eef1f5; }
+    .browser .bar i { width: 6px; height: 6px; border-radius: 50%; background: #cbd5e1; }
+    .browser .shot { height: 88px; background-size: cover; background-position: top center; }
+    .card .cat { margin-top: 14px; font-size: 10px; font-weight: 700; color: var(--blue); }
+    .card h4 { margin-top: 6px; font-size: 13px; font-weight: 700; line-height: 1.45; color: var(--navy); word-break: keep-all; }
+    .card p {
+      margin-top: 8px; font-size: 11px; line-height: 1.6; color: var(--faint);
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .card .tag {
+      margin-top: auto; align-self: flex-start;
+      padding: 3px 8px; font-size: 10px; font-weight: 500; color: var(--muted);
+      background: #f1f5f9; border-radius: 4px;
+    }
+    .card .tag-wrap { margin-top: auto; padding-top: 16px; }
+
+    .quote { margin-top: 48px; text-align: center; font-size: 12px; font-style: italic; font-weight: 500; color: var(--faint); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      body { padding: 0; }
+      .page { grid-template-columns: 1fr; border-radius: 0; }
+      .side { border-right: 0; border-bottom: 1px solid var(--line); }
+      .contacts { max-width: 320px; margin-left: auto; margin-right: auto; }
+      .main { padding: 32px 20px; }
+      .facts { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .cards { grid-template-columns: 1fr; }
+      .title { font-size: 26px; }
+      .headline { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- ===== Sidebar ===== -->
+    <aside class="side">
+      <p class="label">ABOUT ME</p>
+      <div class="photo">
+        <img src="images/profile.jpg" alt="김소연 프로필 사진" onerror="this.remove()" />
+      </div>
+      <h2>김소연</h2>
+      <p class="role">Lead UI/UX 기획자 · PM</p>
+      <span class="career">총 경력 22년 10개월 (2027.1 투입가능)</span>
+
+      <ul class="contacts">
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5.3 0-9 2.7-9 6v2h18v-2c0-3.3-3.7-6-9-6Z"/></svg></span>
+          <div><small>이름</small><strong>김소연 (KIM SOYON)</strong></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2V5Zm2 2v.5l8 5 8-5V7H4Z"/></svg></span>
+          <div><small>이메일</small><strong><a href="mailto:thfro99@gmail.com">thfro99@gmail.com</a></strong></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></span>
+          <div><small>연락처</small><strong><a href="tel:010-7474-6552">010-7474-6552</a></strong></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg></span>
+          <div><small>위치</small><strong>경기 수원시 권선구 / 서울 전지역 협의</strong></div>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- ===== Main ===== -->
+    <main class="main">
+      <h1 class="title">PORTFOLIO</h1>
+      <p class="headline">
+        기획과 운영의 깊이에 실무 추진력을 더하는,<br />
+        <em><span>리드 기획자 &amp; PM 김소연</span></em>입니다.
+      </p>
+      <p class="intro">
+        비즈니스 정책 정의부터 복잡한 금융·공제 AX 플랫폼, 헬스케어 앱 스프린트 운영, 대형 이커머스/브랜드 채널 통합 운영까지
+        안정적으로 리딩해 왔습니다. 최근에는 생성형 AI 툴을 실무에 적극 활용하고, Figma 컴포넌트 시스템을 연계하여 기획
+        산출물의 완성도와 프로젝트 소통 속도를 높이고 있습니다.
+      </p>
+
+      <hr />
+
+      <section class="facts">
+        <div>
+          <h3><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-7 9.2v4L12 20l7-3.8v-4L12 16l-7-3.8Z"/></svg>EDUCATION</h3>
+          <div class="body">
+            <strong>한국방송통신대학교</strong>
+            <span class="sub">미디어영상학과 (편입 졸업)</span><br />
+            수원과학대학 전자계산학과 졸업
+          </div>
+        </div>
+        <div>
+          <h3><svg viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>SKILLS &amp; TOOLS</h3>
+          <ul class="body skills">
+            <li>Figma (UI/UX)</li><li>AI Prompting</li>
+            <li>Jira / Sprint</li><li>WBS &amp; IA 설계</li>
+            <li>HTML / CSS</li><li>운영 제안서 / PT</li>
+          </ul>
+        </div>
+        <div>
+          <h3><svg viewBox="0 0 24 24"><path d="M9 3h6a2 2 0 0 1 2 2v2h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a1 1 0 0 1 1-1h4V5a2 2 0 0 1 2-2Zm0 4h6V5H9v2Zm-7 5h20v1H2v-1Z"/></svg>EXPERIENCE</h3>
+          <div class="body">
+            <strong>네티브 (NETIVE) 부장/팀장</strong>
+            <span class="sub">2015.11 ~ 2026.07 (10년 9개월)</span><br />
+            키위플 / 해피라이징 기획·운영
+          </div>
+        </div>
+      </section>
+
+      <section class="highlights">
+        <header>
+          <h3>PORTFOLIO HIGHLIGHTS</h3>
+          <p>(카드를 터치하면 상세 기획서를 보실 수 있습니다)</p>
+        </header>
+
+        <div class="cards">
+          <a class="card" href="projects/01-ax-chatbot.html">
+            <div class="browser"><div class="bar"><i></i><i></i><i></i></div>
+              <div class="shot" style="background-image:url(images/thumb-01.png), linear-gradient(135deg,#f8fafc,#dbeafe)"></div></div>
+            <span class="cat">01. AX 업무혁신 &amp; 챗봇</span>
+            <h4>건설공제조합 AI챗봇 '건공이'</h4>
+            <p>대화형 인터페이스 및 보증·공제 신청 동선 최적화 설계</p>
+            <div class="tag-wrap"><span class="tag">UI/UX 리드 기획</span></div>
+          </a>
+          <a class="card" href="projects/02-recruiting.html">
+            <div class="browser"><div class="bar"><i></i><i></i><i></i></div>
+              <div class="shot" style="background-image:url(images/thumb-02.png), linear-gradient(135deg,#4c1d95,#7c3aed)"></div></div>
+            <span class="cat">02. 리쿠르팅 플랫폼</span>
+            <h4>라이나원 TMR 채용 플랫폼</h4>
+            <p>총괄 PM 수행 및 AI 기반 IA/PRD 작성으로 생산성 향상</p>
+            <div class="tag-wrap"><span class="tag">총괄 PM</span></div>
+          </a>
+          <a class="card" href="projects/03-kb-healthcare.html">
+            <div class="browser"><div class="bar"><i></i><i></i><i></i></div>
+              <div class="shot" style="background-image:url(images/thumb-03.png), linear-gradient(135deg,#dcfce7,#fef9c3)"></div></div>
+            <span class="cat">03. 헬스케어 앱 운영 PM</span>
+            <h4>KB헬스케어 오케어 UI/UX 운영</h4>
+            <p>오케어 앱 서비스 운영 총괄, 신규 프론트 및 어드민 기능 고도화</p>
+            <div class="tag-wrap"><span class="tag">UI/UX 운영 PM</span></div>
+          </a>
+          <a class="card" href="projects/04-amway-digital.html">
+            <div class="browser"><div class="bar"><i></i><i></i><i></i></div>
+              <div class="shot" style="background-image:url(images/thumb-04.png), linear-gradient(135deg,#ecfeff,#e0f2fe)"></div></div>
+            <span class="cat">04. 디지털 채널 통합 운영 총괄</span>
+            <h4>한국암웨이 디지털 채널 운영 총괄</h4>
+            <p>쇼핑몰·6개 브랜드 사이트·UMS 통합 운영 및 연간 운영 리딩</p>
+            <div class="tag-wrap"><span class="tag">운영 총괄 PM</span></div>
+          </a>
+        </div>
+      </section>
+
+      <p class="quote">“웹·모바일 서비스를 기획해 온 PM으로, 사용자와 클라이언트 사이에서 가장 좋은 답을 찾습니다.”</p>
+    </main>
+  </div>
+</body>
+</html>
